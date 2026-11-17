@@ -1,0 +1,11 @@
+.edge-*/
+.taste-skill/
+*.png
+!assets/images/*.png
+desktop*.png
+mobile*.png
+full-page*.png
+products-*.png
+quality-*.png
+insights-*.png
+contact-*.png
