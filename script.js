@@ -1,35 +1,72 @@
-const menuToggle=document.querySelector('.menu-toggle');
-const mobileMenu=document.querySelector('.mobile-menu');
-menuToggle.addEventListener('click',()=>{const open=menuToggle.getAttribute('aria-expanded')==='true';menuToggle.setAttribute('aria-expanded',String(!open));menuToggle.setAttribute('aria-label',open?'Open navigation':'Close navigation');mobileMenu.classList.toggle('open',!open);menuToggle.querySelector('i').className=open?'fa-solid fa-bars':'fa-solid fa-xmark'});
-mobileMenu.addEventListener('click',e=>{if(e.target.closest('a')){mobileMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false')}});
-const navTrigger=document.querySelector('.nav-trigger');
-const navItem=navTrigger.closest('.nav-item');
-navTrigger.addEventListener('click',()=>{const open=!navItem.classList.contains('open');navItem.classList.toggle('open',open);navTrigger.setAttribute('aria-expanded',String(open))});
-document.addEventListener('click',e=>{if(!e.target.closest('.nav-item')){navItem.classList.remove('open');navTrigger.setAttribute('aria-expanded','false')}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){navItem.classList.remove('open');navTrigger.setAttribute('aria-expanded','false');mobileMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false')}});
-const megaData=[
-  ['Sealing & Gaskets','MLS gaskets, heatshields and application-led sealing solutions.','product-sealing.png','Sealing components preview'],
-  ['Precision Forgings','Forged gears, transmission shafts, axles and crown wheels.','product-forgings.png','Precision forgings preview'],
-  ['Chassis & Suspension','Control arms, steering knuckles and axle assemblies.','product-chassis.png','Chassis components preview'],
-  ['Anti-Vibration & Rubber','Mounts, bushings, molded rubber parts and hoses.','product-rubber.png','Rubber components preview']
-];
-document.querySelectorAll('.mega-tab').forEach(tab=>{const activate=()=>{document.querySelectorAll('.mega-tab').forEach(item=>item.classList.toggle('active',item===tab));const data=megaData[Number(tab.dataset.mega)];document.querySelector('#mega-title').textContent=data[0];document.querySelector('#mega-text').textContent=data[1];const image=document.querySelector('#mega-image');image.src=`assets/images/${data[2]}`;image.alt=data[3]};tab.addEventListener('mouseenter',activate);tab.addEventListener('focus',activate)});
-const productTrack=document.querySelector('.product-track');
-const moveProducts=direction=>productTrack.scrollBy({left:direction*productTrack.clientWidth*.75,behavior:'smooth'});
-document.querySelector('.product-prev').addEventListener('click',()=>moveProducts(-1));
-document.querySelector('.product-next').addEventListener('click',()=>moveProducts(1));
-const sceneObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const index=entry.target.dataset.app;document.querySelectorAll('.app-scene').forEach(scene=>scene.classList.toggle('active',scene===entry.target));document.querySelectorAll('[data-app-image]').forEach(image=>image.classList.toggle('active',image.dataset.appImage===index))}}),{rootMargin:'-35% 0px -35% 0px',threshold:.05});
-document.querySelectorAll('.app-scene').forEach(scene=>sceneObserver.observe(scene));
-const capSlides=[
-  {title:'Share the requirement',text:'Begin with application, drawing context, annual volume and validation needs.',a:['Connect','Bring the requirement into one view','hero-components.png'],b:['Structure','Align specification and evidence','quality-inspection.png']},
-  {title:'Review the application',text:'Organize vehicle context, material needs and expected operating conditions.',a:['Application','Start with the vehicle context','application-engineering.png'],b:['Material','Map component requirements','product-rubber.png']},
-  {title:'Prepare the sourcing path',text:'Bring product, quality and commercial questions into one review.',a:['Review','Inspect relevant evidence','gasket-metrology.png'],b:['Source','Prepare the next conversation','product-forgings.png']}
-];
-let capIndex=0;
-const renderCapability=()=>{const slide=capSlides[capIndex];document.querySelector('#cap-number').textContent=String(capIndex+1).padStart(2,'0');document.querySelector('#cap-title').textContent=slide.title;document.querySelector('#cap-text').textContent=slide.text;[['a',slide.a],['b',slide.b]].forEach(([side,data])=>{document.querySelector(`#cap-label-${side}`).textContent=data[0];document.querySelector(`#cap-card-${side}`).textContent=data[1];const image=document.querySelector(`#cap-image-${side}`);image.src=`assets/images/${data[2]}`;image.alt=data[1]})};
-document.querySelector('.cap-prev').addEventListener('click',()=>{capIndex=(capIndex+capSlides.length-1)%capSlides.length;renderCapability()});
-document.querySelector('.cap-next').addEventListener('click',()=>{capIndex=(capIndex+1)%capSlides.length;renderCapability()});
-const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach(item=>revealObserver.observe(item));
-const video=document.querySelector('.hero-video');
-new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting?video.play().catch(()=>{}):video.pause()),{threshold:.05}).observe(video);
+const header = document.querySelector('.site-header');
+const megaTriggers = [...document.querySelectorAll('.mega-trigger')];
+const megaMenus = [...document.querySelectorAll('.mega-menu')];
+const closeMega = () => {
+  megaMenus.forEach(menu => menu.hidden = true);
+  megaTriggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
+};
+megaTriggers.forEach(trigger => trigger.addEventListener('click', event => {
+  event.stopPropagation();
+  const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+  const opening = menu.hidden;
+  closeMega();
+  if (opening) {
+    menu.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+}));
+document.addEventListener('click', event => {
+  if (!header.contains(event.target)) closeMega();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeMega();
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.mobile-nav');
+menuToggle.addEventListener('click', () => {
+  const opening = mobileNav.hidden;
+  mobileNav.hidden = !opening;
+  menuToggle.setAttribute('aria-expanded', String(opening));
+  menuToggle.setAttribute('aria-label', opening ? 'Close navigation' : 'Open navigation');
+});
+mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  mobileNav.hidden = true;
+  menuToggle.setAttribute('aria-expanded', 'false');
+}));
+
+const heroVideo = document.querySelector('.hero video');
+const videoControl = document.querySelector('.video-control');
+videoControl.addEventListener('click', () => {
+  if (heroVideo.paused) {
+    heroVideo.play();
+    videoControl.textContent = 'Ⅱ';
+    videoControl.setAttribute('aria-label', 'Pause background video');
+  } else {
+    heroVideo.pause();
+    videoControl.textContent = '▶';
+    videoControl.setAttribute('aria-label', 'Play background video');
+  }
+});
+
+const track = document.querySelector('.product-track');
+const cards = [...document.querySelectorAll('.product-card')];
+let productIndex = 0;
+function moveProducts(direction) {
+  const visible = window.innerWidth > 1020 ? 4 : window.innerWidth > 700 ? 2 : 1;
+  const max = Math.max(0, cards.length - visible);
+  productIndex = Math.min(max, Math.max(0, productIndex + direction));
+  const gap = 18;
+  const distance = cards[0].getBoundingClientRect().width + gap;
+  track.style.transform = `translateX(${-productIndex * distance}px)`;
+}
+document.querySelector('[data-product="prev"]').addEventListener('click', () => moveProducts(-1));
+document.querySelector('[data-product="next"]').addEventListener('click', () => moveProducts(1));
+window.addEventListener('resize', () => { productIndex = 0; track.style.transform = ''; });
+
+const journeyTabs = [...document.querySelectorAll('.journey-tabs button')];
+journeyTabs.forEach(tab => tab.addEventListener('click', () => {
+  journeyTabs.forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected', 'true');
+}));

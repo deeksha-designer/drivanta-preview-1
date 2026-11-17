@@ -2,6 +2,7 @@
 .taste-skill/
 *.png
 !assets/images/*.png
+!assets/clients/*.png
 desktop*.png
 mobile*.png
 full-page*.png
