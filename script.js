@@ -5,16 +5,24 @@ const closeMega = () => {
   megaMenus.forEach(menu => menu.hidden = true);
   megaTriggers.forEach(trigger => trigger.setAttribute('aria-expanded', 'false'));
 };
+const openMega = trigger => {
+  const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+  closeMega();
+  menu.hidden = false;
+  trigger.setAttribute('aria-expanded', 'true');
+};
 megaTriggers.forEach(trigger => trigger.addEventListener('click', event => {
   event.stopPropagation();
   const menu = document.getElementById(trigger.getAttribute('aria-controls'));
   const opening = menu.hidden;
   closeMega();
-  if (opening) {
-    menu.hidden = false;
-    trigger.setAttribute('aria-expanded', 'true');
-  }
+  if (opening) openMega(trigger);
 }));
+megaTriggers.forEach(trigger => {
+  trigger.addEventListener('mouseenter', () => openMega(trigger));
+  trigger.addEventListener('focus', () => openMega(trigger));
+});
+header.addEventListener('mouseleave', closeMega);
 document.addEventListener('click', event => {
   if (!header.contains(event.target)) closeMega();
 });
@@ -76,10 +84,25 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
 }));
 
 const journeyTabs = [...document.querySelectorAll('.journey-tabs button')];
-journeyTabs.forEach(tab => tab.addEventListener('click', () => {
+const journeyContent = [
+  ['Start with the vehicle, duty cycle and performance need.','Connect the operating context before product selection.','assets/images/application-engineering.png','assets/images/hero-components.png'],
+  ['Bring drawings, interfaces and material expectations together.','Organise the technical inputs into one review-ready brief.','assets/images/hero-components.png','assets/images/product-families.png'],
+  ['Review manufacturability, quality evidence and open questions.','Keep engineering and sourcing decisions connected.','assets/images/gasket-metrology.png','assets/images/quality-inspection.png'],
+  ['Agree the validation scope before quotation and nomination.','Create a clearer path from review to commercial response.','assets/images/quality-inspection.png','assets/images/manufacturing-floor.png']
+];
+journeyTabs.forEach((tab, selectedIndex) => tab.addEventListener('click', () => {
   journeyTabs.forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
   tab.classList.add('active');
   tab.setAttribute('aria-selected', 'true');
+  const cards = [...document.querySelectorAll('.journey-cards article')];
+  cards.forEach(card => card.classList.add('is-changing'));
+  window.setTimeout(() => {
+    document.querySelector('#journey-title-a').textContent = journeyContent[selectedIndex][0];
+    document.querySelector('#journey-title-b').textContent = journeyContent[selectedIndex][1];
+    document.querySelector('#journey-image-a').src = journeyContent[selectedIndex][2];
+    document.querySelector('#journey-image-b').src = journeyContent[selectedIndex][3];
+    cards.forEach(card => card.classList.remove('is-changing'));
+  }, 160);
 }));
 
 const processCards = [...document.querySelectorAll('.cap-flow article')];
@@ -88,7 +111,22 @@ function moveProcess(direction) {
   processIndex = (processIndex + direction + processCards.length) % processCards.length;
   processCards.forEach((card, index) => card.classList.toggle('active', index === processIndex));
   document.querySelector('.cap-count b').textContent = String(processIndex + 1).padStart(2, '0');
-  if (window.innerWidth <= 1100) processCards[processIndex].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  const flow = document.querySelector('.cap-flow');
+  flow.scrollTo({left:processCards[processIndex].offsetLeft-flow.offsetLeft,behavior:'smooth'});
 }
 document.querySelector('.cap-prev').addEventListener('click', () => moveProcess(-1));
 document.querySelector('.cap-next').addEventListener('click', () => moveProcess(1));
+
+const logoMarquee = document.querySelector('.logo-marquee');
+if (logoMarquee) [...logoMarquee.children].forEach(item => logoMarquee.append(item.cloneNode(true)));
+
+const revealTargets = document.querySelectorAll('main > section:not(.hero), .footer-contact');
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  }), {threshold:.12});
+  revealTargets.forEach(target => { target.classList.add('reveal-section'); revealObserver.observe(target); });
+}
