@@ -43,20 +43,6 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', (
   menuToggle.setAttribute('aria-expanded', 'false');
 }));
 
-const heroVideo = document.querySelector('.hero video');
-const videoControl = document.querySelector('.video-control');
-videoControl.addEventListener('click', () => {
-  if (heroVideo.paused) {
-    heroVideo.play();
-    videoControl.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
-    videoControl.setAttribute('aria-label', 'Pause background video');
-  } else {
-    heroVideo.pause();
-    videoControl.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i>';
-    videoControl.setAttribute('aria-label', 'Play background video');
-  }
-});
-
 const track = document.querySelector('.product-track');
 const cards = [...document.querySelectorAll('.product-card')];
 let productIndex = 0;

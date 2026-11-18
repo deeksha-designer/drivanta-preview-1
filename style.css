@@ -142,3 +142,15 @@ p{font-size:clamp(16px,1vw,18px)!important;line-height:1.65}
 
 @media(max-width:1020px){.product-card{flex-basis:calc(50% - 9px)}.filter-tabs,.journey-tabs{overflow-x:auto;padding-bottom:6px}.journey-tabs{margin-bottom:35px}}
 @media(max-width:700px){.button,.mega-feature a{min-height:58px;padding:0 24px;font-size:16px!important}.filter-tabs button,.journey-tabs button{padding:13px 22px;font-size:16px}.product-card{flex:3 0 82vw;padding:20px}.product-card h3{margin-top:20px}.slider-controls{margin-top:28px;gap:12px}.journey-cards h3{font-size:24px;line-height:30px;margin:28px 0}}
+
+/* About and hero refinements */
+.about-panel p{margin-bottom:50px;color:#fff;line-height:1.65}
+.about-panel h3{font-size:36px;line-height:46px;margin:0 0 24px}
+.stats dt{font-weight:500;font-size:18px;color:#b9c8d5}
+.stats dd{color:#fff;font-weight:700;font-size:64px;margin:8px 0 0;animation:stat-float 3.5s ease-in-out infinite}
+@keyframes stat-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.button,.mega-feature a{padding:0 30px;border-width:2px;border-radius:999px;font-size:16px!important;font-weight:600;line-height:1;gap:12px;margin:0}
+.hero-story h2{font-size:24px;line-height:34px;margin:0 0 36px}
+.hero-story{position:absolute;z-index:2;right:max(7vw,70px);bottom:50px;width:min(420px,33vw);padding:30px;border-radius:18px;background:rgba(6,29,54,.78);color:#fff}
+.hero-content{left:max(7vw,70px);top:60%;max-width:720px}
+@media(max-width:700px){.about-panel h3{font-size:30px;line-height:38px}.stats dt{font-size:16px}.stats dd{font-size:52px}.button,.mega-feature a{padding:0 24px}.hero-content{left:24px;top:54%}}
