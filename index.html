@@ -19,8 +19,8 @@
     <a class="brand" href="#home" aria-label="Drivanta home"><img src="assets/images/drivanta-logo.webp" alt="Drivanta"></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
       <button class="nav-link mega-trigger" aria-expanded="false" aria-controls="mega-products">Products <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
-      <a class="nav-link" href="#applications">Applications</a>
-      <a class="nav-link" href="#about">Company</a>
+      <button class="nav-link mega-trigger" aria-expanded="false" aria-controls="mega-applications">Applications <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+      <button class="nav-link mega-trigger" aria-expanded="false" aria-controls="mega-company">Company <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
       <button class="nav-link mega-trigger" aria-expanded="false" aria-controls="mega-resources">Resources <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
     </nav>
     <div class="header-actions">
@@ -58,6 +58,16 @@
       </div>
       <figure><img src="assets/images/gasket-metrology.png" alt="Automotive component metrology inspection"><figcaption>Technical review preview</figcaption></figure>
     </div>
+    <div class="mega-menu" id="mega-applications" hidden>
+      <div class="mega-sidebar"><h2>Applications</h2><a href="#applications">Passenger vehicles <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a><a href="#applications">Commercial vehicles <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a><a href="#applications">Electric mobility <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></div>
+      <div class="mega-feature"><h3>Component decisions in context</h3><p>Translate vehicle goals, duty cycles and packaging constraints into a focused engineering brief.</p><a href="#applications">Explore applications <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+      <figure><img src="assets/images/application-engineering.png" alt="Automotive application engineering review"><figcaption>Application engineering</figcaption></figure>
+    </div>
+    <div class="mega-menu" id="mega-company" hidden>
+      <div class="mega-sidebar"><h2>Company</h2><a href="#about">About Drivanta <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a><a href="#capabilities">Capabilities <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a><a href="#quality">Quality approach <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a></div>
+      <div class="mega-feature"><h3>Built for the next mobility brief</h3><p>Drivanta brings product depth, application thinking and manufacturing discipline into one connected conversation.</p><a href="#about">Meet the proposition <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+      <figure><img src="assets/images/factory-campus-preview.png" alt="Drivanta manufacturing campus"><figcaption>Manufacturing mindset</figcaption></figure>
+    </div>
     <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile navigation">
       <a href="#products">Products</a><a href="#applications">Applications</a><a href="#about">Company</a><a href="#resources">Resources</a><a href="#quote">Request a quote</a>
     </nav>
@@ -68,11 +78,11 @@
       <video autoplay muted loop playsinline poster="assets/images/hero-components.png" aria-label="Automotive manufacturing footage"><source src="assets/video/automotive-factory.mp4" type="video/mp4"></video>
       <div class="hero-shade"></div>
       <div class="hero-content">
-        <p>Automotive component systems</p>
+        <p>Engineering for modern mobility</p>
         <h1>Precision that moves the vehicle forward.</h1>
         <div class="hero-actions"><a class="button button-solid" href="#products">Explore products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="button button-outline" href="#quote">Discuss a requirement <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
       </div>
-      <aside class="hero-story"><span>Application-led engineering</span><h2>Connect every component decision to the vehicle requirement.</h2><a href="#capabilities">Explore the review path <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside>
+      <aside class="hero-story"><span>Connected engineering</span><h2>Connect every component decision to the vehicle requirement.</h2><a href="#capabilities">Explore the review path <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></aside>
       <button class="video-control" aria-label="Pause background video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
     </section>
 
@@ -102,8 +112,8 @@
       <div class="about-title"><h2>Built for the requirements of modern mobility</h2></div>
       <img class="about-image" src="assets/images/factory-campus-preview.png" alt="Automotive manufacturing campus preview">
       <div class="about-panel">
-        <div><h3>A connected component and engineering proposition.</h3><p>Drivanta’s final history, footprint, certifications and operating data are awaiting client approval. This preview shows how verified company information can be presented.</p><a class="text-link" href="#quote">Request the verified company profile <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
-        <dl class="stats"><div><dt>Proposed product divisions</dt><dd>04</dd></div><div><dt>Application pathways</dt><dd>03</dd></div><div><dt>Connected RFQ journey</dt><dd>01</dd></div></dl>
+        <div><h3>A connected component and engineering proposition.</h3><p>Drivanta helps mobility teams move from an operating requirement to a manufacturable, review-ready component decision. Product thinking, application context and quality evidence stay connected from the first conversation.</p><a class="text-link" href="#quote">Start a conversation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        <dl class="stats"><div><dt>Product divisions</dt><dd data-value="04">00</dd></div><div><dt>Application pathways</dt><dd data-value="03">00</dd></div><div><dt>Connected RFQ journey</dt><dd data-value="01">00</dd></div></dl>
       </div>
     </section>
 
@@ -121,7 +131,7 @@
     </section>
 
     <section class="quality section content-section" id="quality">
-      <div class="quality-copy"><h2>Proof should sit beside every claim</h2><p>Connect each product statement to verified inspection records, material traceability and the relevant validation method. Final certification details will only be published after client approval.</p><div class="quality-points"><span>Documented inspection</span><span>Material traceability</span><span>Application validation</span></div><a class="button button-solid" href="#resources">Review technical resources</a></div>
+      <div class="quality-copy"><h2>Proof should sit beside every claim</h2><p>Every component conversation is grounded in the evidence that matters: inspection discipline, material traceability and validation aligned to the application.</p><div class="quality-points"><span>Documented inspection</span><span>Material traceability</span><span>Application validation</span></div><a class="button button-solid" href="#resources">Review technical resources</a></div>
       <div class="quality-image"><img src="assets/images/inspection-sustainability-v2.png" alt="Engineer inspecting precision automotive components in a modern quality laboratory"></div>
     </section>
 
@@ -132,11 +142,10 @@
         <article><div><h3>Define interfaces before material selection</h3><a href="#quote">View topic <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div><img src="assets/images/product-sealing.png" alt="Automotive gasket"></article>
         <article><div><h3>Evidence to align before supplier review</h3><a href="#quote">View guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div><img src="assets/images/gasket-metrology.png" alt="Automotive component metrology"></article>
       </div>
-      <p class="verification-note">Preview topics only. Final technical resources require approved authors, dates and source material.</p>
     </section>
 
     <section class="clients content-section" id="clients">
-      <div class="clients-intro"><h2>Industry customer ecosystem</h2><p>Logos shown are industry references sourced from Talbros and do not represent verified Drivanta customer relationships. Final client approvals are pending.</p></div>
+      <div class="clients-intro"><h2>Industry customer ecosystem</h2><p>Strong supplier relationships are built around dependable execution, clear communication and evidence that stands up to engineering scrutiny.</p></div>
       <div class="logo-grid logo-marquee">
         <div><img src="assets/clients/client-1.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-2.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-3.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-4.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-5.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-6.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-7.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-8.png" alt="Industry reference client logo"></div><div><img src="assets/clients/client-9.png" alt="Industry reference client logo"></div>
       </div>
@@ -146,7 +155,7 @@
   <footer class="site-footer" id="quote">
     <div class="footer-contact"><div><span>CONNECT WITH US</span><h2>Let us know how we can support your next requirement</h2></div><a href="mailto:info@drivanta.com"><i class="fa-regular fa-message" aria-hidden="true"></i><span>REQUEST A QUOTE</span></a></div>
     <div class="footer-grid">
-      <div class="footer-brand"><img src="assets/images/drivanta-logo.webp" alt="Drivanta"><h3>Stay connected</h3><a class="subscribe" href="mailto:info@drivanta.com?subject=Drivanta%20updates">Subscribe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><p>Verified address, telephone and registered-office information pending client approval.</p></div>
+      <div class="footer-brand"><img src="assets/images/drivanta-logo.webp" alt="Drivanta"><h3>Stay connected</h3><a class="subscribe" href="mailto:info@drivanta.com?subject=Drivanta%20updates">Subscribe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><p>Follow the latest thinking in automotive components, application engineering and quality-led manufacturing.</p></div>
       <div><h3>Products</h3><a href="#products">Sealing systems</a><a href="#products">Forged components</a><a href="#products">Chassis components</a><a href="#products">Rubber components</a></div>
       <div><h3>Applications</h3><a href="#applications">Passenger vehicles</a><a href="#applications">Commercial vehicles</a><a href="#applications">Electric mobility</a><a href="#capabilities">Engineering review</a></div>
       <div><h3>Company</h3><a href="#about">About Drivanta</a><a href="#capabilities">Capabilities</a><a href="#quality">Quality</a><a href="#clients">Industry ecosystem</a></div>

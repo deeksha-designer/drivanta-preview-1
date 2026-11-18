@@ -41,3 +41,18 @@ body{font-family:"Lexend",sans-serif}.section-heading h2,.about-title h2,.client
 body,button,input,textarea,select{font-family:"Google Sans",sans-serif}
 h1,h2,h3,h4,h5,h6,.hero h1,.section-heading h2,.about-title h2,.clients-intro h2,.quality-copy h2{letter-spacing:-2px}
 .menu-toggle .fa-bars{height:auto;background:none;margin:0;color:currentColor;font-size:18px}
+
+/* Final responsive brand system */
+.brand{padding:12px;width:150px;flex:0 0 auto}
+.nav-link{display:flex;align-items:center;gap:8px;padding:0 32px;color:#fff;border:0;background:transparent;font-size:16px;cursor:pointer;font-weight:600}
+.site-header{position:relative;height:100%;background:#fff;color:var(--ink);border-bottom:1px solid #e7ebef;backdrop-filter:none}
+h1,h2,h3,h4,h5,h6,.hero h1,.section-heading h2,.about-title h2,.clients-intro h2,.quality-copy h2{letter-spacing:normal}
+.content-section .section-heading h2,.content-section .about-title h2,.content-section.clients h2,.content-section.quality h2{text-align:left;margin-left:0;margin-right:0}
+.content-section .split-heading{align-items:flex-start}
+.content-section .filter-tabs{justify-content:flex-start}
+.quality-copy h2,.clients-intro h2{max-width:620px}
+.stats dd{display:inline-block;min-width:2ch;animation:stat-pulse 3.5s ease-in-out infinite}
+@keyframes stat-pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px);color:var(--blue)}}
+.mega-menu{z-index:60}
+@media(max-width:1100px){.site-header{height:82px}.nav-link{padding:0 16px}.brand{width:140px}.header-search{min-width:140px}.content-section{padding-left:clamp(30px,6vw,60px);padding-right:clamp(30px,6vw,60px)}}
+@media(max-width:700px){.site-header{height:72px}.brand{padding:9px;width:135px}.desktop-nav,.header-search,.header-actions>.button{display:none}.header-actions{margin-left:auto}.menu-toggle{display:block}.mobile-nav{position:absolute;z-index:70;top:72px;left:0;right:0;display:grid;gap:0;padding:10px 20px 18px;background:#fff;border-bottom:1px solid #dfe7ed;box-shadow:0 18px 35px rgba(6,29,54,.12)}.mobile-nav a{padding:14px 4px;border-bottom:1px solid #e7ebef;color:var(--ink);font-weight:600}.content-section{padding-left:20px;padding-right:20px}.content-section .section-heading h2,.content-section .about-title h2,.content-section.clients h2,.content-section.quality h2{font-size:clamp(32px,9vw,42px);line-height:1.08}.content-section .split-heading{gap:18px}.content-section .filter-tabs{width:100%;overflow-x:auto;justify-content:flex-start}.quality-copy h2,.clients-intro h2{max-width:none}.stats dd{font-size:52px}.mega-menu{display:none!important}}

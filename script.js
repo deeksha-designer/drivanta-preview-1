@@ -130,3 +130,23 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   }), {threshold:.12});
   revealTargets.forEach(target => { target.classList.add('reveal-section'); revealObserver.observe(target); });
 }
+
+const statValues = [...document.querySelectorAll('.stats dd[data-value]')];
+const animateStats = () => statValues.forEach(stat => {
+  const target = Number(stat.dataset.value);
+  const start = performance.now();
+  const tick = now => {
+    const progress = Math.min(1, (now - start) / 900);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    stat.textContent = String(Math.round(target * eased)).padStart(2, '0');
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+});
+if ('IntersectionObserver' in window) {
+  const statsObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { animateStats(); statsObserver.disconnect(); }
+  }), {threshold:.35});
+  const stats = document.querySelector('.stats');
+  if (stats) statsObserver.observe(stats);
+} else animateStats();
