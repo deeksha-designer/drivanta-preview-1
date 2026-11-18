@@ -48,11 +48,11 @@ const videoControl = document.querySelector('.video-control');
 videoControl.addEventListener('click', () => {
   if (heroVideo.paused) {
     heroVideo.play();
-    videoControl.textContent = 'Ⅱ';
+    videoControl.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
     videoControl.setAttribute('aria-label', 'Pause background video');
   } else {
     heroVideo.pause();
-    videoControl.textContent = '▶';
+    videoControl.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i>';
     videoControl.setAttribute('aria-label', 'Play background video');
   }
 });
