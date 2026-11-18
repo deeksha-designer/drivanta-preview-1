@@ -110,7 +110,6 @@ let processIndex = 0;
 function moveProcess(direction) {
   processIndex = (processIndex + direction + processCards.length) % processCards.length;
   processCards.forEach((card, index) => card.classList.toggle('active', index === processIndex));
-  document.querySelector('.cap-count b').textContent = String(processIndex + 1).padStart(2, '0');
   const flow = document.querySelector('.cap-flow');
   flow.scrollTo({left:processCards[processIndex].offsetLeft-flow.offsetLeft,behavior:'smooth'});
 }
