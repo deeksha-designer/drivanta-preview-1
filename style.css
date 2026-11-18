@@ -303,3 +303,15 @@ p{font-size:18px!important;line-height:28px!important}
   align-items:stretch;
 }
 @media(max-width:1100px){.cap-layout{grid-template-columns:1fr;gap:40px}}
+
+/* Footer and slider edge alignment */
+.footer-grid{width:min(1500px,calc(100% - (var(--section-x) * 2)));margin:auto;grid-template-columns:1.5fr repeat(4,1fr);gap:55px;padding-top:100px}
+.footer-bottom{width:min(1500px,calc(100% - (var(--section-x) * 2)));margin:0 auto;padding:24px 0 48px;border-color:#d9e0e5}
+.footer-bottom>div{margin-left:auto}
+.content-section.application>.section-heading,.content-section.application>.journey-tabs,.content-section.application>.journey-cards{width:calc(100% - 80px);margin-left:0;margin-right:80px}
+.logo-grid img{filter:grayscale(1) brightness(.55) contrast(1.08)!important;opacity:1!important;mix-blend-mode:multiply!important}
+.logo-grid>div:hover img{filter:grayscale(.2) brightness(.82) contrast(1.05)!important}
+@media(max-width:700px){
+  .footer-grid,.footer-bottom{width:calc(100% - 40px)}
+  .content-section.application>.section-heading,.content-section.application>.journey-tabs,.content-section.application>.journey-cards{width:100%;margin-right:0}
+}
