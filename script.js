@@ -43,6 +43,67 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', (
   menuToggle.setAttribute('aria-expanded', 'false');
 }));
 
+const searchDialog = document.querySelector('#site-search');
+const searchTriggers = [...document.querySelectorAll('.header-search, .mobile-search-trigger')];
+const searchClose = searchDialog.querySelector('.search-close');
+const searchInput = searchDialog.querySelector('#site-search-input');
+const searchForm = searchDialog.querySelector('.search-form');
+const searchResults = searchDialog.querySelector('.search-results');
+const searchIndex = [
+  { title: 'Gaskets & sealing systems', keywords: 'gaskets sealing powertrain products', href: '#products' },
+  { title: 'Forged components', keywords: 'forging forged powertrain products', href: '#products' },
+  { title: 'Chassis components', keywords: 'chassis vehicle systems products', href: '#products' },
+  { title: 'Rubber components', keywords: 'rubber hoses vibration products', href: '#products' },
+  { title: 'Passenger and commercial vehicle applications', keywords: 'passenger commercial vehicles application', href: '#applications' },
+  { title: 'Electric mobility', keywords: 'electric vehicle ev mobility application', href: '#applications' },
+  { title: 'Engineering review capabilities', keywords: 'engineering review process requirement capabilities', href: '#capabilities' },
+  { title: 'Quality and validation evidence', keywords: 'quality inspection validation traceability evidence', href: '#quality' },
+  { title: 'RFQ guides and technical resources', keywords: 'rfq guide resources technical library', href: '#resources' },
+  { title: 'Request a quote', keywords: 'quote contact enquiry requirement brief', href: '#quote' }
+];
+let searchReturnFocus = null;
+const renderSearchResults = value => {
+  const query = value.trim().toLowerCase();
+  if (!query) {
+    searchResults.innerHTML = '';
+    return;
+  }
+  const matches = searchIndex.filter(item => `${item.title} ${item.keywords}`.toLowerCase().includes(query));
+  searchResults.innerHTML = matches.length
+    ? matches.map(item => `<a href="${item.href}"><span>${item.title}</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>`).join('')
+    : '<p>No matching content found. Try products, applications, quality or RFQ.</p>';
+  searchResults.querySelectorAll('a').forEach(link => link.addEventListener('click', closeSearch));
+};
+function openSearch(trigger) {
+  closeMega();
+  searchReturnFocus = trigger;
+  searchDialog.hidden = false;
+  document.body.classList.add('search-open');
+  searchTriggers.forEach(item => item.setAttribute('aria-expanded', 'true'));
+  window.setTimeout(() => searchInput.focus(), 30);
+}
+function closeSearch() {
+  searchDialog.hidden = true;
+  document.body.classList.remove('search-open');
+  searchTriggers.forEach(item => item.setAttribute('aria-expanded', 'false'));
+  if (searchReturnFocus) searchReturnFocus.focus();
+}
+searchTriggers.forEach(trigger => trigger.addEventListener('click', () => openSearch(trigger)));
+searchClose.addEventListener('click', closeSearch);
+searchForm.addEventListener('submit', event => {
+  event.preventDefault();
+  renderSearchResults(searchInput.value);
+});
+searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+searchDialog.querySelectorAll('[data-search]').forEach(button => button.addEventListener('click', () => {
+  searchInput.value = button.dataset.search;
+  renderSearchResults(searchInput.value);
+  searchInput.focus();
+}));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !searchDialog.hidden) closeSearch();
+});
+
 const track = document.querySelector('.product-track');
 const cards = [...document.querySelectorAll('.product-card')];
 let productIndex = 0;

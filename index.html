@@ -24,7 +24,7 @@
       <button class="nav-link mega-trigger" aria-expanded="false" aria-controls="mega-resources">Resources <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
     </nav>
     <div class="header-actions">
-      <a class="header-search" href="#resources" aria-label="Search technical resources">Search <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
+      <button class="header-search" type="button" aria-label="Open site search" aria-controls="site-search" aria-expanded="false">Search <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
       <a class="button button-solid" href="#quote">Request a quote</a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
     </div>
@@ -69,9 +69,28 @@
       <figure><img src="assets/images/optimized/factory-campus-preview.jpg" alt="Drivanta manufacturing campus" loading="lazy" decoding="async"></figure>
     </div>
     <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile navigation">
-      <a href="#products">Products</a><a href="#applications">Applications</a><a href="#about">Company</a><a href="#resources">Resources</a><a href="#quote">Request a quote</a>
+      <a href="#products">Products</a><a href="#applications">Applications</a><a href="#about">Company</a><a href="#resources">Resources</a><button class="mobile-search-trigger" type="button">Search</button><a href="#quote">Request a quote</a>
     </nav>
   </header>
+
+  <div class="site-search" id="site-search" role="dialog" aria-modal="true" aria-labelledby="search-title" hidden>
+    <button class="search-close" type="button" aria-label="Close search"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <div class="search-panel">
+      <h2 id="search-title">Search Drivanta</h2>
+      <form class="search-form" role="search">
+        <label class="sr-only" for="site-search-input">Search products, applications and resources</label>
+        <input id="site-search-input" type="search" autocomplete="off" placeholder="Search products, applications and resources">
+        <button type="submit" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+      </form>
+      <div class="search-topics" aria-label="Popular searches">
+        <button type="button" data-search="Sealing systems">#Sealing Systems</button>
+        <button type="button" data-search="Forged components">#Forged Components</button>
+        <button type="button" data-search="Electric mobility">#Electric Mobility</button>
+        <button type="button" data-search="RFQ guides">#RFQ Guides</button>
+      </div>
+      <div class="search-results" aria-live="polite"></div>
+    </div>
+  </div>
 
   <main id="main">
     <section class="hero" id="home">
@@ -159,7 +178,7 @@
       <div><h3>Company</h3><a href="#about">About Drivanta</a><a href="#capabilities">Capabilities</a><a href="#quality">Quality</a><a href="#clients">Industry ecosystem</a></div>
       <div><h3>Resources</h3><a href="#resources">Technical library</a><a href="#resources">RFQ guides</a><a href="#quote">Request a quote</a><a href="mailto:info@drivanta.com">Contact</a></div>
     </div>
-    <div class="footer-bottom"><div><span>© Copyright 2026 Drivanta Auto Private Limited</span><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+    <div class="footer-bottom"><div><span>© Copyright 2026 Drivanta Auto Private Limited</span></div></div>
   </footer>
 </body>
 </html>
