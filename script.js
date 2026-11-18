@@ -47,7 +47,7 @@ const track = document.querySelector('.product-track');
 const cards = [...document.querySelectorAll('.product-card')];
 let productIndex = 0;
 function moveProducts(direction) {
-  const visible = window.innerWidth > 1020 ? 4 : window.innerWidth > 700 ? 2 : 1;
+  const visible = window.innerWidth > 1020 ? 3 : window.innerWidth > 700 ? 2 : 1;
   const max = Math.max(0, cards.length - visible);
   productIndex = Math.min(max, Math.max(0, productIndex + direction));
   const gap = 18;

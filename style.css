@@ -190,3 +190,23 @@ p{font-size:18px!important;line-height:28px!important}
 
 @media(max-width:1100px){.section-heading h2,.about-title h2,.clients-intro h2,.quality-copy h2,.application .section-heading h2,.hero h1{font-size:46px}.cap-layout{grid-template-columns:1fr;gap:40px}.about-panel{width:90%;gap:50px}.header-search{gap:28px}}
 @media(max-width:700px){.section-heading h2,.about-title h2,.clients-intro h2,.quality-copy h2,.application .section-heading h2,.hero h1{font-size:36px;line-height:1.1}.filter-tabs,.journey-tabs{gap:12px}.journey-cards article>div{padding:36px 28px}.button,.mega-feature a{min-height:0!important;padding:14px 24px}.about-panel{width:calc(100% - 32px);padding:34px 25px;gap:35px}.about-panel h3{font-size:30px;line-height:38px}.stats div{padding-left:24px}.cap-layout{gap:24px}.cap-copy h3{font-size:30px;line-height:36px}.cap-flow article h3{margin-left:24px;margin-right:24px}.cap-flow article p{margin-left:24px;margin-right:24px}.footer-contact,.footer-contact-overlay{width:100%}.header-search{gap:20px;padding:12px 18px}}
+
+/* Visibility, scroll rhythm, and fluid edge treatment */
+:root{--section-x:130px;--section-y:100px}
+.logo-grid img{filter:none!important;opacity:1!important;mix-blend-mode:normal!important}
+.footer-brand p,.footer-bottom{color:#000;font-size:17px}
+.products{width:100%;max-width:none;padding-right:0}
+.products .filter-tabs{margin-bottom:0}
+.products .product-viewport{width:100%;overflow:hidden}
+.products .product-track{width:max-content;min-width:100%}
+.footer-contact-overlay{align-items:flex-start;justify-content:flex-end;flex-direction:column;min-height:620px;padding:clamp(55px,8vw,120px) var(--section-x)}
+.footer-contact-overlay>div{max-width:900px}
+.footer-contact-overlay .button{margin-top:32px}
+.footer-contact{min-height:620px}
+.cap-flow article h3{margin:0;padding:26px 32px 0}
+.cap-flow article p{margin:0;padding:12px 32px 28px}
+.reveal-section{opacity:0;transform:translateY(34px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal-section.is-visible{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){.footer-contact-overlay{padding-left:60px;padding-right:60px}}
+@media(max-width:700px){.footer-contact,.footer-contact-overlay{min-height:620px}.footer-contact-overlay{padding:48px 24px}.products{padding-left:20px;padding-right:0}.cap-flow article h3{padding:22px 24px 0}.cap-flow article p{padding:12px 24px 24px}.footer-brand img{width:180px}}
+@media(max-width:700px){:root{--section-x:20px;--section-y:70px}}
