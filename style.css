@@ -118,3 +118,27 @@ p{font-size:clamp(16px,1vw,18px)!important;line-height:1.65}
 @media(max-width:1100px){.nav-link{padding:0 16px}.cap-layout{grid-template-columns:1fr}.cap-copy{max-width:720px}.content-section.about .about-panel{width:90%}.footer-contact-overlay{align-items:flex-start;flex-direction:column;justify-content:flex-end}.logo-grid>div{flex-basis:210px}}
 @media(max-width:700px){.button,.mega-feature a{min-height:54px;padding:0 22px;font-size:15px}.hero-actions{width:100%}.hero-actions .button{width:100%}.content-section.about .about-title{padding:70px 20px 34px}.content-section.about .about-image{height:420px}.content-section.about .about-panel{width:calc(100% - 32px);margin-top:-70px}.cap-flow{overflow-x:auto;scroll-snap-type:x mandatory}.cap-flow article{flex:0 0 82vw;min-height:400px;scroll-snap-align:start}.content-section.clients .clients-intro{padding:60px 20px 36px}.logo-grid>div{flex-basis:170px;min-height:125px;padding:22px}.footer-contact{width:calc(100% - 24px);min-height:560px}.footer-contact-overlay{min-height:560px;padding:38px 26px}.footer-contact h2{font-size:36px}.footer-contact-overlay .button{width:100%}.footer-grid h3{font-size:15px}.footer-grid>div>a{font-size:15px}.footer-bottom{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.content-section.clients .logo-grid{animation:none}}
+
+/* Component consistency pass */
+.nav-link:hover,.nav-link:focus-visible,.nav-link[aria-expanded=true]{background:transparent!important;color:#000}
+
+/* Match every CTA to the hero-banner treatment. */
+.button,.mega-feature a{min-height:68px;padding:0 32px;border-width:2px;border-radius:999px;font-size:18px!important;font-weight:600;line-height:1;gap:12px}
+.button i,.mega-feature a i{font-size:16px}
+
+/* Shared pill tabs across products and applications. */
+.filter-tabs,.journey-tabs{display:flex;align-items:center;gap:12px;max-width:none;border:0;border-radius:0;padding:0;margin-bottom:45px}
+.filter-tabs button,.journey-tabs button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:99px;padding:16px 32px;font-size:18px;white-space:nowrap;cursor:pointer}
+.filter-tabs button.active,.journey-tabs button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.filter-tabs button:hover,.journey-tabs button:hover{transform:none;border-color:var(--blue)}
+
+.product-card{position:relative;flex:3 0 calc(40% - 8px);min-width:225px;background:#f3f5f6;border-radius:18px;padding:24px}
+.product-card h3{font-size:20px;margin:24px 0 0;padding-right:40px}
+.product-card>a{right:24px;bottom:22px}
+.slider-controls{display:flex;align-items:center;justify-content:flex-end;margin-top:36px;gap:18px}
+.slider-controls>span{border-radius:20px;height:8px;background:var(--line);flex:1;overflow:hidden}
+.slider-controls>span i{border-radius:20px;display:block;width:30%;height:8px;background:var(--navy)}
+.journey-cards h3{font-size:26px;line-height:32px;margin:40px 0}
+
+@media(max-width:1020px){.product-card{flex-basis:calc(50% - 9px)}.filter-tabs,.journey-tabs{overflow-x:auto;padding-bottom:6px}.journey-tabs{margin-bottom:35px}}
+@media(max-width:700px){.button,.mega-feature a{min-height:58px;padding:0 24px;font-size:16px!important}.filter-tabs button,.journey-tabs button{padding:13px 22px;font-size:16px}.product-card{flex:3 0 82vw;padding:20px}.product-card h3{margin-top:20px}.slider-controls{margin-top:28px;gap:12px}.journey-cards h3{font-size:24px;line-height:30px;margin:28px 0}}
