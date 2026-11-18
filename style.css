@@ -235,3 +235,15 @@ p{font-size:18px!important;line-height:28px!important}
   .cap-layout{width:100%}
   .hero-content{left:24px;top:54%}
 }
+
+/* Capability layout grid */
+.cap-layout{
+  max-width:100%;
+  width:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:27% 73%;
+  gap:64px;
+  align-items:stretch;
+}
+@media(max-width:1100px){.cap-layout{grid-template-columns:1fr;gap:40px}}
