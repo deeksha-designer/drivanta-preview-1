@@ -210,3 +210,28 @@ p{font-size:18px!important;line-height:28px!important}
 @media(max-width:1100px){.footer-contact-overlay{padding-left:60px;padding-right:60px}}
 @media(max-width:700px){.footer-contact,.footer-contact-overlay{min-height:620px}.footer-contact-overlay{padding:48px 24px}.products{padding-left:20px;padding-right:0}.cap-flow article h3{padding:22px 24px 0}.cap-flow article p{padding:12px 24px 24px}.footer-brand img{width:180px}}
 @media(max-width:700px){:root{--section-x:20px;--section-y:70px}}
+
+/* Final visual alignment */
+.cap-flow article p{margin:0;padding:16px 10px 36px 32px}
+.products .slider-controls{width:min(100%,1500px);margin-left:auto;margin-right:auto}
+.product-card{position:relative;flex:5 0 calc(32% - 0px);min-width:230px;background:#f3f5f6;border-radius:18px;padding:24px}
+.journey-cards article:first-child .button[href="#quote"]{background:#000;color:#fff;border-color:#000}
+.footer-grid{width:min(1500px,calc(100% - 80px));margin:auto;grid-template-columns:1.5fr repeat(4,1fr);gap:55px;padding:56px 0 96px}
+.footer-grid h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:8px 0 25px;color:#0052a4}
+.footer-grid>div>a{display:block;color:#000;font-size:18px;line-height:28px;margin:16px 0}
+.footer-bottom{width:min(1500px,calc(100% - 80px));margin:0 auto;padding:24px 0 48px;border-color:#d9e0e5}
+.footer-contact-overlay{padding-left:var(--section-x);padding-right:var(--section-x)}
+.about-panel{width:calc(100% - var(--section-x));margin-left:var(--section-x);margin-right:0}
+.cap-copy{margin-left:0}
+.cap-layout{width:calc(100% + var(--section-x));max-width:none}
+.hero-content{left:max(7vw,70px);top:66%;max-width:720px}
+.logo-grid img{filter:grayscale(1)!important;opacity:.62!important;mix-blend-mode:multiply!important}
+.logo-grid>div:hover img{filter:grayscale(.15)!important;opacity:1!important}
+@media(max-width:700px){
+  .footer-grid{width:calc(100% - 40px);padding:42px 0 64px;gap:28px}
+  .footer-grid>div>a{font-size:16px;line-height:24px;margin:12px 0}
+  .footer-grid h3{font-size:13px;margin-bottom:18px}
+  .about-panel{width:calc(100% - 20px);margin-left:20px}
+  .cap-layout{width:100%}
+  .hero-content{left:24px;top:54%}
+}
