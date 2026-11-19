@@ -132,10 +132,10 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
 
 const journeyTabs = [...document.querySelectorAll('.journey-tabs button')];
 const journeyContent = [
-  ['Start with the vehicle, duty cycle and performance need.','Connect the operating context before product selection.','assets/images/optimized/application-engineering.jpg','assets/images/optimized/hero-components.jpg'],
-  ['Bring drawings, interfaces and material expectations together.','Organise the technical inputs into one review-ready brief.','assets/images/optimized/hero-components.jpg','assets/images/optimized/product-families.jpg'],
-  ['Review manufacturability, quality evidence and open questions.','Keep engineering and sourcing decisions connected.','assets/images/optimized/gasket-metrology.jpg','assets/images/optimized/quality-inspection.jpg'],
-  ['Agree the validation scope before quotation and nomination.','Create a clearer path from review to commercial response.','assets/images/optimized/quality-inspection.jpg','assets/images/optimized/manufacturing-floor.jpg']
+  ['Start with the vehicle, duty cycle and performance need.','Connect the operating context before product selection.','assets/images/premium/application-engineering.jpg','assets/images/premium/product-sealing.jpg'],
+  ['Bring drawings, interfaces and material expectations together.','Organise the technical inputs into one review-ready brief.','assets/images/premium/product-sealing.jpg','assets/images/premium/suspension-detail.jpg'],
+  ['Review manufacturability, quality evidence and open questions.','Keep engineering and sourcing decisions connected.','assets/images/premium/quality-inspection.jpg','assets/images/premium/manufacturing-cnc.jpg'],
+  ['Agree the validation scope before quotation and nomination.','Create a clearer path from review to commercial response.','assets/images/premium/factory-operator.jpg','assets/images/premium/hero-assembly.jpg']
 ];
 journeyTabs.forEach((tab, selectedIndex) => tab.addEventListener('click', () => {
   journeyTabs.forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
@@ -196,20 +196,3 @@ if ('IntersectionObserver' in window) {
   const stats = document.querySelector('.stats');
   if (stats) statsObserver.observe(stats);
 } else animateStats();
-
-// Keep the first render light: the hero poster appears instantly, then the video
-// stream begins only after the primary content has settled.
-const heroVideo = document.querySelector('#hero-video');
-if (heroVideo) {
-  const loadHeroVideo = () => {
-    const source = heroVideo.querySelector('source[data-src]');
-    if (!source || source.src) return;
-    source.src = source.dataset.src;
-    heroVideo.load();
-    heroVideo.play().catch(() => {});
-  };
-  window.addEventListener('load', () => {
-    if ('requestIdleCallback' in window) requestIdleCallback(loadHeroVideo, { timeout: 3000 });
-    else setTimeout(loadHeroVideo, 1500);
-  }, { once: true });
-}

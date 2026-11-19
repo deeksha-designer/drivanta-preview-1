@@ -345,6 +345,7 @@ body.search-open{overflow:hidden}
 .search-results a i{color:var(--blue)}
 .search-results p{margin:0;color:#5c6872}
 .mobile-search-trigger{padding:14px 4px;border:0;border-bottom:1px solid #e7ebef;background:transparent;color:var(--ink);font:inherit;font-weight:600;text-align:left;cursor:pointer}
+.hero-media{height:100%;object-fit:cover;object-position:center}
 
 /* Responsive hardening */
 html,body{max-width:100%;overflow-x:hidden}
