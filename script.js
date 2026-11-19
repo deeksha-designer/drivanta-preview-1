@@ -132,10 +132,10 @@ filterButtons.forEach(button => button.addEventListener('click', () => {
 
 const journeyTabs = [...document.querySelectorAll('.journey-tabs button')];
 const journeyContent = [
-  ['Start with the vehicle, duty cycle and performance need.','Connect the operating context before product selection.','assets/images/premium/application-engineering.jpg','assets/images/premium/product-sealing.jpg'],
-  ['Bring drawings, interfaces and material expectations together.','Organise the technical inputs into one review-ready brief.','assets/images/premium/product-sealing.jpg','assets/images/premium/suspension-detail.jpg'],
-  ['Review manufacturability, quality evidence and open questions.','Keep engineering and sourcing decisions connected.','assets/images/premium/quality-inspection.jpg','assets/images/premium/manufacturing-cnc.jpg'],
-  ['Agree the validation scope before quotation and nomination.','Create a clearer path from review to commercial response.','assets/images/premium/factory-operator.jpg','assets/images/premium/hero-assembly.jpg']
+  ['Start with the vehicle, duty cycle and performance need.','Connect the operating context before product selection.','assets/images/premium/journey-brief.jpg','assets/images/premium/journey-process.jpg'],
+  ['Bring drawings, interfaces and material expectations together.','Organise the technical inputs into one review-ready brief.','assets/images/premium/journey-tab-data.jpg','assets/images/premium/journey-tab-interfaces.jpg'],
+  ['Review manufacturability, quality evidence and open questions.','Keep engineering and sourcing decisions connected.','assets/images/premium/journey-tab-review.jpg','assets/images/premium/journey-tab-validation.jpg'],
+  ['Agree the validation scope before quotation and nomination.','Create a clearer path from review to commercial response.','assets/images/premium/journey-tab-nomination.jpg','assets/images/premium/journey-tab-control.jpg']
 ];
 journeyTabs.forEach((tab, selectedIndex) => tab.addEventListener('click', () => {
   journeyTabs.forEach(item => { item.classList.remove('active'); item.setAttribute('aria-selected', 'false'); });
